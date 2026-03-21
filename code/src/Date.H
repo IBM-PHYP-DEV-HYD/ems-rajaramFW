@@ -1,0 +1,68 @@
+#include <iostream>
+
+class Date
+{
+public:
+    int mDay;
+    int mMonth;
+    int mYear;
+    bool mValid;
+
+    // Default constructor → N/A
+    Date()
+    {
+        mDay = 0;
+        mMonth = 0;
+        mYear = 0;
+        mValid = true;
+    }
+
+    // Constructor for valid date
+    Date(int d, int m, int y)
+    {
+        mDay = d;
+        mMonth = m;
+        mYear = y;
+        mValid = true;
+    }
+
+    bool isValid() const
+    {
+        return mValid;
+    }
+
+    void setNA()
+    {
+        mValid = false;
+    }
+
+    friend std::istream& operator>>(std::istream& in, Date& d)
+    {
+        std::cout << "Enter Day: ";
+        in >> d.mDay;
+
+        std::cout << "Enter Month: ";
+        in >> d.mMonth;
+
+        std::cout << "Enter Year: ";
+        in >> d.mYear;
+
+        d.mValid = true;
+
+        return in;
+    }
+
+    friend std::ostream& operator<<(std::ostream& out, const Date& d)
+    {
+        if(!d.mValid)
+            out << "N/A";
+        else
+            out << d.mDay << "/" << d.mMonth << "/" << d.mYear;
+
+        return out;
+    }
+};
+
+
+int daysInMonth(int month, int year);
+Date addMonths(const Date& d, int monthsParm);
