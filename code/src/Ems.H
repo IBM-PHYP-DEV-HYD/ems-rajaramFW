@@ -11,6 +11,14 @@ EmpContractor& randomEmpContractorfunc(EmpContractor& obj);
 EmpIntern& randomEmpInternfunc(EmpIntern& obj);
 std::string createEmpID(uint32_t seqParm, uint8_t empType);
 
+// string gender[] = {"Male","Female","Others"};
+// string status[] = {"Active","inactive"};
+// string agency[] = {"AVENGERS","JUSTICE_LEAGUE","X_MEN"};
+// string branch[] = {"CSE","CSIT","ECE"};
+// string collage[] = {"IIT_DELHI","IIT_MUMBAI","IIT_KANPUR","IIT_HYDERABAD","NIT_WARANGAL","NIT_TIRUCHI,IIIT_HYDERABAD"};
+// string Name[] = {"RAM","ELISA","JOHN","VICTORIA","ALBERT","MARIE","ALEX","ALEXA","BOB","SIRI"};
+
+
 // Employee Status
 enum EmployeeType {
     FULLTIME = 1,

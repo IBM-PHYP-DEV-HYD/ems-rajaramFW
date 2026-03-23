@@ -3,6 +3,8 @@
 
 #include <string>
 #include "EmployeeIF.H"
+// #include "Ems.H"
+
 
 class Employee : public EmployeeIF
 {
@@ -20,10 +22,8 @@ public:
     // Default Constructor
     Employee() {}
 
-    // Virtual Destructor (important for polymorphism)
     virtual ~Employee() {}
 
-    // -------- Non-Virtual Functions --------
     std::string getID();
     void setID(std::string idParm);
 
@@ -48,7 +48,7 @@ public:
     std::string getStatus();
     bool setStatus(std::string statusParm);
 
-    // // -------- Virtual Functions --------
+    // -------- Virtual Functions -------------
     virtual int getUsedLeaves();
     virtual bool setUsedLeaves(int usedLeavesParm);
 

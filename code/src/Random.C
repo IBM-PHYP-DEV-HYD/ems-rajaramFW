@@ -43,7 +43,6 @@ EmpFullTime& randomEmpFullTimefunc(EmpFullTime& obj){
     obj.mLeavesAvailed = getRandomNumber(1,20);
 
     return obj;
-
 }
 
 EmpContractor& randomEmpContractorfunc(EmpContractor& obj){

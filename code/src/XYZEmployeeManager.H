@@ -8,7 +8,6 @@
 #include "Ems.H"
 #include "Deque.H"
 #include "ExtendedDeque.H"
-// Forward declarations 
 class Employee;
 
 class XYZEmployeeManager

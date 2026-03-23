@@ -8,7 +8,6 @@ public:
     int mYear;
     bool mValid;
 
-    // Default constructor → N/A
     Date()
     {
         mDay = 0;
@@ -17,7 +16,6 @@ public:
         mValid = true;
     }
 
-    // Constructor for valid date
     Date(int d, int m, int y)
     {
         mDay = d;
