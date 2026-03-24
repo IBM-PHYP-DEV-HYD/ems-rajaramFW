@@ -61,8 +61,6 @@ void print(std::ostream& out) const override
             << "\n Branch: " << mBranch
             << "]";
 }
-    
 };
-
 #endif
 

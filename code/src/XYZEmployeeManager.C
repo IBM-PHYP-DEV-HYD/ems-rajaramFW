@@ -91,11 +91,6 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
             sObj->setType("Resigned");
             sObj->setStatus(mCurEmployeeQueue[i]->getStatus());
 
-            // sObj->mDOL= addMonths(mCurEmployeeQueue[i]->getDOJ(),getRandomNumber(1,12));
-            // sObj->mDOL.mDay= {};
-            // sObj->mDOL.mMonth= {};
-            // sObj->mDOL.mYear= {};
-
             mResignedEmployeeQueue.pushBack(sObj);
 
             mCurEmployeeQueue.removeElement(i);
@@ -106,12 +101,6 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
 
     cout << "Employee with ID not found\n";
     return false;
-}
-
-
-void XYZEmployeeManager::makeResigned(Employee* objParm){
-    // objParm->mID = 
-
 }
 
 void XYZEmployeeManager::displayEmpList(){
@@ -268,7 +257,6 @@ void XYZEmployeeManager::pDisplayInActiveEmp(){
     }
 
 }
-
 
 XYZEmployeeManager::~XYZEmployeeManager()
 {

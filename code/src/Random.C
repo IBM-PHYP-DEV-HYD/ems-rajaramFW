@@ -28,8 +28,6 @@ std::string createEmpID(uint32_t seqParm, uint8_t empType)
     return sID;
 }
 
-// Random.cpp
-
 // Define arrays
 const std::string Random::Name[10] = {"RAM","ELISA","JOHN","VICTORIA","ALBERT","MARIE","ALEX","ALEXA","BOB","SIRI"};
 const std::string Random::status[2] = {"Active","Inactive"};

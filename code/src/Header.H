@@ -22,7 +22,6 @@ enum DequeInitChoice {
 };
 
 
-
 //data typr choice 
 enum DataTypeChoice {
     CREATE_EMPTY_DEQUE = 1,
