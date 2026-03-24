@@ -11,28 +11,25 @@ XYZEmployeeManager :: XYZEmployeeManager(){
 
 bool XYZEmployeeManager::pAddEmpRandom(){
 
-    int sTypeSelector = getRandomNumber(0,2);
+    int sTypeSelector = Random::getRandomNumber(0,2);
 
 
     if(sTypeSelector == 0){
-        EmpFullTime* sFT = new EmpFullTime();//destructor of XYZEmployeeMnager should delete this heap memory
-        sFT->mType = empType[0];
-        sFT->mID = createEmpID(mTotalEmpCount,sTypeSelector);
-        randomEmpFullTimefunc(*sFT);
+        EmpFullTime* sFT = new EmpFullTime(1);//destructor of XYZEmployeeMnager should delete this heap memory
+        sFT->setType(empType[0]);
+        sFT->setID(createEmpID(mTotalEmpCount,sTypeSelector));
         mCurEmployeeQueue.pushBack(sFT);
     }
     else if(sTypeSelector == 1){
-        EmpIntern* sIn = new EmpIntern();
-        sIn->mType = empType[1];
-        sIn->mID = createEmpID(mTotalEmpCount,sTypeSelector);
-        randomEmpInternfunc(*sIn);
+        EmpIntern* sIn = new EmpIntern(1);
+        sIn->setType(empType[1]);
+        sIn->setID(createEmpID(mTotalEmpCount,sTypeSelector));
         mCurEmployeeQueue.pushBack(sIn);
     }
     else if(sTypeSelector == 2){
-        EmpContractor* sCe = new EmpContractor();
-        sCe->mType = empType[2];
-        sCe->mID = createEmpID(mTotalEmpCount,sTypeSelector);
-        randomEmpContractorfunc(*sCe);
+        EmpContractor* sCe = new EmpContractor(1);
+        sCe->setType(empType[2]);
+        sCe->setID (createEmpID(mTotalEmpCount,sTypeSelector));
         mCurEmployeeQueue.pushBack(sCe);
     }
     mTotalEmpCount++;
@@ -51,19 +48,19 @@ bool XYZEmployeeManager::pAddEmp(){
     // cinBufferClear();
     if(sType==1){
         EmpFullTime* sFT = new EmpFullTime();//destructor of XYZEmployeeMnager should delete this heap memory
-        sFT->mType = empType[0];
+        sFT->setType(empType[0]);
         cin>>*sFT;
         mCurEmployeeQueue.pushBack(sFT);
     }
     else if(sType==2){
         EmpIntern* sIn = new EmpIntern();
-        sIn->mType = empType[1];
+        sIn->setType(empType[1]);
         cin>>*sIn;
         mCurEmployeeQueue.pushBack(sIn);
     }
     else if(sType == 3){
         EmpContractor* sCe = new EmpContractor();
-        sCe->mType = empType[2];
+        sCe->setType(empType[2]);
         cin>>*sCe;
         mCurEmployeeQueue.pushBack(sCe);
 
@@ -94,7 +91,7 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
             sObj->setType("Resigned");
             sObj->setStatus(mCurEmployeeQueue[i]->getStatus());
 
-            sObj->mDOL= addMonths(mCurEmployeeQueue[i]->getDOJ(),getRandomNumber(1,12));
+            // sObj->mDOL= addMonths(mCurEmployeeQueue[i]->getDOJ(),getRandomNumber(1,12));
             // sObj->mDOL.mDay= {};
             // sObj->mDOL.mMonth= {};
             // sObj->mDOL.mYear= {};
@@ -149,12 +146,10 @@ bool XYZEmployeeManager::makeFullTime(std::string IDParm){
             sObj->setID(sID);
             sObj->setDOB(mCurEmployeeQueue[i]->getDOB());
             sObj->setDOJ(mCurEmployeeQueue[i]->getDOJ());
-            // sObj->setDOL(mCurEmployeeQueue[i]->getDOL());
             sObj->setGender(mCurEmployeeQueue[i]->getGender());
 
             sObj->setType("FullTime");
             sObj->setStatus("Active");
-            sObj->mDOL.mValid = false;
 
             mCurEmployeeQueue.removeElement(i);
 

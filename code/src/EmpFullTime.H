@@ -3,16 +3,19 @@
 
 #include <string>
 #include "Employee.H"
+#include "Random.H"
+
 using namespace std;
 
 class EmpFullTime : public Employee
 {
-public:
+private:
     int mTotalLeaves;
     int mLeavesAvailed;
 
 public:
     EmpFullTime();
+    EmpFullTime(int rFlag);
 
     // Destructor
     virtual ~EmpFullTime() {}
@@ -24,6 +27,7 @@ public:
     virtual bool setTotalLeaves(int totalLeavesParm) override;
 
     virtual int getUsedLeaves() override;
+
 
     friend istream& operator>>(istream& in, EmpFullTime& e) {
         cout << "\nEnter Employee ID: "; 

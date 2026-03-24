@@ -104,9 +104,6 @@ int main(){
     std::cout << "------------------------------------------------------------\n";
 
     XYZEmployeeManager sEmsObj;
-    // sEmsObj.pAddEmpRandom();
-    
-    // sEmsObj.displayActiveEmp();
 
     do{
         switch(sMenuCounter){

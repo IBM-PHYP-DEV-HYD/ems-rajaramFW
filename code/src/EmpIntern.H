@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Employee.H"
+#include "Random.H"
+
 using namespace std;
 
 class EmpIntern : public Employee
@@ -13,6 +15,7 @@ public:
 
 public:
     EmpIntern();
+    EmpIntern(int rFlag);
 
     virtual ~EmpIntern() {}
 

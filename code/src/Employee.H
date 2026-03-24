@@ -3,12 +3,10 @@
 
 #include <string>
 #include "EmployeeIF.H"
-// #include "Ems.H"
-
 
 class Employee : public EmployeeIF
 {
-public:
+protected:
     std::string mID;
     std::string mName;
     Date mDOB;
