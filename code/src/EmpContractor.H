@@ -44,21 +44,13 @@ public:
     }
 
 
-void print(std::ostream& out) const override
-{
-        out << "\n[ID: " << mID 
-            << "\n Name: " << mName 
-            << "\n DOB: " << mDOB 
-            << "\n DOJ: " << mDOJ 
-            << "\n DOL: " << mDOL 
-            << "\n Status: " << mStatus
-            << "\n Gender: " << mGender
-            << "\n Type: " << mType
-            << "\n Agency: " << mAgency
-            << "]";
-}
-    
+void print(std::ostream& out) const override; 
+
+void printAll(std::ostream& out) const override;
+
 
 };
+
+
 
 #endif

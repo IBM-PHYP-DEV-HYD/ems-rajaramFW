@@ -57,6 +57,14 @@ public:
     void displayInactiveEmp();
     void displayResignedEmp();
     void makeResigned(Employee* objParm);
+
+    void headerFullTime();
+    void headerIntern();
+    void headerContractor();
+    void headerAll();
+
+
+
 };
 
 #endif

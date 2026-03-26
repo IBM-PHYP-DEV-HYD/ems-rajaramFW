@@ -16,13 +16,18 @@ std::string createEmpID(uint32_t seqParm, uint8_t empType)
     std::string num;
 
     if(seqParm < 10)
+    {
         num = "000" + std::to_string(seqParm);
-    else if(seqParm < 100)
+    }
+    else if(seqParm < 100){
         num = "00" + std::to_string(seqParm);
-    else if(seqParm<1000)
+    }
+    else if(seqParm<1000){
         num = "0" + std::to_string(seqParm);
-    else
+    }
+    else{
         num = std::to_string(seqParm);
+    }
 
     std::string sID = sPrefix + num + empTypeList[empType];
     return sID;

@@ -55,6 +55,9 @@ public:
     virtual std::string getLWD() = 0;
 
     virtual void print(std::ostream& out) const = 0;
+    virtual void printHeader() const = 0;
+
+    virtual void printAll(std::ostream& out) const = 0;
 
     friend std::ostream& operator<<(std::ostream& out, const EmployeeIF& e);
 

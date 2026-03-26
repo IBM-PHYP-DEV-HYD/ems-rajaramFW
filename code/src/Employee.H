@@ -3,6 +3,10 @@
 
 #include <string>
 #include "EmployeeIF.H"
+#include "Random.H"
+#include <iomanip>
+
+
 
 class Employee : public EmployeeIF
 {
@@ -18,59 +22,58 @@ protected:
 
 public:
     // Default Constructor
-    Employee() {}
+    Employee();
+    Employee(bool randParm);
 
     virtual ~Employee() {}
 
-    std::string getID();
-    void setID(std::string idParm);
+    std::string getID() override;
+    void setID(std::string idParm) override;
 
-    std::string getName();
-    void setName(std::string nameParm);
+    std::string getName() override;
+    void setName(std::string nameParm) override;
 
-    Date getDOB();
-    bool setDOB(Date DOBParm);
+    Date getDOB() override;
+    bool setDOB(Date DOBParm) override; 
 
-    Date getDOJ();
-    bool setDOJ(Date DOJParm);
+    Date getDOJ() override;
+    bool setDOJ(Date DOJParm) override;
 
-    Date getDOL();
-    bool setDOL(Date DOJParm);
+    Date getDOL() override;
+    bool setDOL(Date DOJParm) override;
 
-    std::string getGender();
-    bool setGender(std::string genderParm);
-
-    std::string getType();
-    bool setType(std::string typeParm);
-
-    std::string getStatus();
-    bool setStatus(std::string statusParm);
+    std::string getGender() override;
+    bool setGender(std::string genderParm) override;
 
     // -------- Virtual Functions -------------
-    virtual int getUsedLeaves();
-    virtual bool setUsedLeaves(int usedLeavesParm);
+    virtual int getUsedLeaves() override;
+    virtual bool setUsedLeaves(int usedLeavesParm) override;
 
-    virtual int getTotalLeaves();
-    virtual bool setTotalLeaves(int totalLeavesParm);
+    virtual int getTotalLeaves() override;
+    virtual bool setTotalLeaves(int totalLeavesParm) override;
 
-    virtual std::string getAgency();
-    virtual bool setAgency(std::string agencyParm);
+    virtual std::string getAgency() override;
+    virtual bool setAgency(std::string agencyParm) override;
 
-    virtual std::string getBranch();
-    virtual bool setBranch(std::string branchParm);
+    virtual std::string getBranch() override;
+    virtual bool setBranch(std::string branchParm) override;
 
-    virtual bool setUniversityName(std::string univNameParm);
-    virtual std::string getUniversityName();
+    virtual bool setUniversityName(std::string univNameParm) override;
+    virtual std::string getUniversityName() override;
 
-    virtual std::string getEmpType();
-    virtual bool setEmpType(std::string empTypeParm);
+    virtual std::string getType() override;
+    virtual bool setType(std::string empTypeParm) override;
 
-    virtual std::string getEmpStatus();
-    virtual bool setEmpStatus(std::string empStatusParm);
+    virtual std::string getStatus() override;
+    virtual bool setStatus(std::string empStatusParm) override;
 
-    virtual std::string getLWD();
+    virtual std::string getLWD() override;
 
-    virtual void print(std::ostream& out) const;
+    virtual void print(std::ostream& out) const override;
+    virtual void printHeader() const override;
+
+    virtual void printAll(std::ostream& out) const override;
+
 
 };
 

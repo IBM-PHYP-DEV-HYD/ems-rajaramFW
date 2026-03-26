@@ -124,14 +124,14 @@ int main(){
                 }
                 else if(sVal == 1){
                     sEmsObj.pAddEmpRandom();
-                    sEmsObj.displayEmpList();
+                    // sEmsObj.displayEmpList();
                 }
                 else if(sVal == 2){
                     sEmsObj.pAddEmp();
                     sEmsObj.displayEmpList();
                 }
                 else{
-                    cout<<"unknown\n";
+                    cout<<"Enter a valid chpice\n";
                 }
                 break;
             }
@@ -163,6 +163,7 @@ int main(){
                         cout<<"\n1)FullTime"
                             <<"\n2)Contractor"
                             <<"\nIntern";
+                        cout<<"\nYour Choice:";
                         cin>>sKey;
                         cinBufferClear();
                         if(sKey==1){//fulltime
@@ -174,6 +175,10 @@ int main(){
                         else if(sKey==3){//Intern
                             sEmsObj.pDisplayIntern();
                         }
+                        else{
+                            cout<<"\nEnter a valid choice\n";
+                        }
+
                         break;
                     }
                     case 3:{
@@ -181,6 +186,10 @@ int main(){
                     }
                     case 4:{
                         int sKey;
+                        cout<<"\n1)Active"
+                            <<"\n2)Inactive"
+                            <<"\nResigned";
+                        cout<<"\nYour Choice:";
                         cin>>sKey;
                         cinBufferClear();
                         if(sKey==1){//Active
@@ -192,6 +201,9 @@ int main(){
                         else if(sKey==3){//Resigned
                             sEmsObj.displayResignedEmp();
                         }
+                        else{
+                            cout<<"\nEnter a valid choice\n";
+                        }
                         break;
                     }
                     case 5:{
@@ -199,6 +211,7 @@ int main(){
                         break;
                     }
                     default :{
+                        cout<<"\nEnter a valid choice\n";
                         break;
                     }
                 }
@@ -252,9 +265,14 @@ int main(){
                         cout<<"\nName not found\n";
                     }
                 }
+                else{
+                    cout<<"\nEnter a valid choice\n";
+                }
                 break;
             }
             default:{
+                sMenuCounter = 0;
+                cout<<"\nEnter a Valid Choice\n";
                 break;
             }
         }

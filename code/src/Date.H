@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <sstream>
 class Date
 {
 public:
@@ -52,15 +52,19 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Date& d)
     {
-        if(!d.mValid)
+        if(!d.mValid){
             out << "N/A";
-        else
-            out << d.mDay << "/" << d.mMonth << "/" << d.mYear;
+        }
+        else{
+            // out << d.mDay << "/" << d.mMonth << "/" << d.mYear;
+            std::ostringstream oss;
+            oss << d.mDay << "/" << d.mMonth << "/" << d.mYear;
+            out << oss.str();  
+        } 
 
         return out;
     }
 };
-
 
 int daysInMonth(int month, int year);
 Date addMonths(const Date& d, int monthsParm);
