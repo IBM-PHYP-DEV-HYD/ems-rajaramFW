@@ -106,6 +106,7 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
 
 void XYZEmployeeManager::displayEmpList(){
     this->headerAll();
+    
     for(int i=0;i<mCurEmployeeQueue.get_size();i++){
 
         // cout<<"\nprint all function xecuted for all types  \n";
@@ -126,12 +127,12 @@ void XYZEmployeeManager::displayEmpList(){
         // else{
 
         // }
-        
-    }
 
+    }
 }
 
 void XYZEmployeeManager::displayResignedEmp(){
+    this->headerResigned();
     for(int i=0;i<mResignedEmployeeQueue.get_size();i++){
         EmployeeIF* sObjPtr = ((mResignedEmployeeQueue[i]));
         std::cout << *sObjPtr << std::endl;
@@ -189,7 +190,7 @@ bool XYZEmployeeManager::pAddLeaves(int LeaveParm){
 EmployeeIF* XYZEmployeeManager::pSearchWithId(std::string IDParm){
     for(int i = 0; i < mCurEmployeeQueue.get_size(); i++)
     {
-        cout << "\nID in queue " << mCurEmployeeQueue[i]->getID();
+        // cout << "\nID in queue " << mCurEmployeeQueue[i]->getID();
 
         if(mCurEmployeeQueue[i]->getID() == IDParm)
         {
@@ -214,7 +215,7 @@ EmployeeIF* XYZEmployeeManager::pSearchWithName(std::string nameParm){
 
 void XYZEmployeeManager::pDisplayFulltime(){
     int sCtr=0;
-    this->headerFullTime();
+    headerFIC(1);
    for(int i = 0; i < mCurEmployeeQueue.get_size(); i++){
         if(mCurEmployeeQueue[i]->getID()[7] == 'F'){
             cout<<*mCurEmployeeQueue[i];
@@ -228,7 +229,7 @@ void XYZEmployeeManager::pDisplayFulltime(){
 
 void XYZEmployeeManager::pDisplayContractor(){
     int sCtr = 0;
-    this->headerContractor();
+    headerFIC(2);
     for(int i = 0; i < mCurEmployeeQueue.get_size(); i++){
         if(mCurEmployeeQueue[i]->getID()[7] == 'C'){
             cout<<*mCurEmployeeQueue[i];
@@ -243,8 +244,7 @@ void XYZEmployeeManager::pDisplayContractor(){
 
 void XYZEmployeeManager::pDisplayIntern(){
     int sCtr = 0;
-    this->headerIntern();
-
+    headerFIC(3);
 
     for(int i = 0; i < mCurEmployeeQueue.get_size(); i++){
         if(mCurEmployeeQueue[i]->getID()[7] == 'I'){
@@ -286,12 +286,64 @@ void XYZEmployeeManager::pDisplayInActiveEmp(){
     if(!sCtr){
         cout<<"\nNo Active Employee\n";
     }
-
 }
 
 
+void XYZEmployeeManager::pDisplayMaleEmp(){
+    int sCtr = 0;
+    this->headerAll();
 
-void XYZEmployeeManager::headerFullTime(){
+    for(int i = 0; i < mCurEmployeeQueue.get_size(); i++){
+        if((mCurEmployeeQueue[i]->getGender() == "Male")){
+            mCurEmployeeQueue[i]->printAll(cout);
+            sCtr++;
+        }
+    }
+    if(!sCtr){
+        cout<<"\nNo Male Employee\n";
+    }
+}
+
+void XYZEmployeeManager::pDisplayFemaleEmp(){
+    int sCtr = 0;
+    this->headerAll();
+
+    for(int i = 0; i < mCurEmployeeQueue.get_size(); i++){
+        if((mCurEmployeeQueue[i]->getGender() == "Female")){
+            mCurEmployeeQueue[i]->printAll(cout);
+            sCtr++;
+        }
+    }
+    if(!sCtr){
+        cout<<"\nNo Male Employee\n";
+    }
+}
+
+void XYZEmployeeManager::pDisplayEmpSummary(std::string empID){
+    cout<<"\nInside Employee Summary\n";
+    EmployeeIF* objPtr = this->pSearchWithId(empID);
+
+    if(objPtr->getID()[7] == 'F'){
+        headerFIC(1);
+    }
+    if(objPtr->getID()[7] == 'I'){
+        headerFIC(2);
+    }
+    if(objPtr->getID()[7] == 'C'){
+        headerFIC(3);
+    }
+
+    cout<<*objPtr;
+
+}
+
+void XYZEmployeeManager::pAddNEmpRandom(int n){
+    for(int sIt=0;sIt<n;sIt++){
+        pAddEmpRandom();
+    }
+}
+
+void XYZEmployeeManager::headerFIC(int valParm){
 
     std::cout << std::string(165, '-') 
     << "";
@@ -303,58 +355,42 @@ void XYZEmployeeManager::headerFullTime(){
     << "|" << std::setw(16) << "DOL"
     << "|" << std::setw(14) << "Status"
     << "|" << std::setw(14) << "Gender"
-    << "|" << std::setw(16) << "Type"
-    << "|" << std::setw(16) << "TotalLeaves"
-    << "|" << std::setw(16) << "LeavesAvailed"
+    << "|" << std::setw(16) << "Type";
 
-    << "|" << "\n";
+    if(valParm == 1){
+        cout<< "|" << std::setw(16) << "TotalLeaves"
+            << "|" << std::setw(16) << "LeavesAvailed";
+    }
+    if(valParm == 2){
+        cout<< "|" << std::setw(16) << "Branch"
+            << "|" << std::setw(16) << "College";
+    }
+    if(valParm == 3){
+        cout<< "|" << std::setw(16) << "Agency";
+    }
 
+    std::cout<< "|" << "\n";
     std::cout << std::string(165, '-') 
         << "";
+
 }
 
-void XYZEmployeeManager::headerIntern(){
-        std::cout << std::string(165, '-') 
-    << "";
+
+void XYZEmployeeManager::headerResigned(){
     std::cout << std::left
-    << "\n|" << std::setw(12) << "ID"
-    << "|" << std::setw(19) << "Name"
-    << "|" << std::setw(16) << "DOB"
-    << "|" << std::setw(16) << "DOJ"
-    << "|" << std::setw(16) << "DOL"
-    << "|" << std::setw(14) << "Status"
-    << "|" << std::setw(14) << "Gender"
-    << "|" << std::setw(16) << "Type"
-    << "|" << std::setw(16) << "Branch"
-    << "|" << std::setw(16) << "College"
-    << "|" << "\n";
+        << "|" << std::setw(12) << "ID"
+        << "|" << std::setw(19) << "Name"
+        << "|" << std::setw(16) << "DOB"
+        << "|" << std::setw(16) << "DOJ"
+        << "|" << std::setw(16) << "DOL"
+        << "|" << std::setw(14) << "Status"
+        << "|" << std::setw(14) << "Gender"
+        << "|" << std::setw(16) << "Type"
+        << "|" << "\n";
 
-    std::cout << std::string(165, '-') 
-    << "";
-
+    std::cout << std::string(132, '-') 
+        << "\n";
 }
-
-void XYZEmployeeManager::headerContractor(){
-        std::cout << std::string(150, '-') 
-    << "";
-    std::cout << std::left
-    << "\n|" << std::setw(12) << "ID"
-    << "|" << std::setw(19) << "Name"
-    << "|" << std::setw(16) << "DOB"
-    << "|" << std::setw(16) << "DOJ"
-    << "|" << std::setw(16) << "DOL"
-    << "|" << std::setw(14) << "Status"
-    << "|" << std::setw(14) << "Gender"
-    << "|" << std::setw(16) << "Type"
-    << "|" << std::setw(16) << "Agency"
-
-    << "|" << "\n";
-
-    std::cout << std::string(150, '-') 
-        << "";
-
-}
-
 
 void XYZEmployeeManager::headerAll(){
         cout << "+"

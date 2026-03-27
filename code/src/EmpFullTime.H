@@ -53,7 +53,6 @@ public:
     }
 
 void print(std::ostream& out) const override;
-void printHeader() const override;
 void printAll(std::ostream& out) const override;
 
 

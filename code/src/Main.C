@@ -38,7 +38,8 @@ int mainMenu_2()
     std::cout << "| Add an Employee:                                         |\n";
     std::cout << "|                                                          |\n";
     std::cout << "|      1. Add an Employee at Random                        |\n";
-    std::cout << "|      2. Add an Employee (F/C/I)                          |\n";
+    std::cout << "|      2. Add  N Employee at Random                        |\n";
+    std::cout << "|      3. Add an Employee (F/C/I)                          |\n";
     std::cout << "|                                                          |\n";
     std::cout << "|   (Enter -1 to go back to main menu)                     |\n";
     std::cout << "------------------------------------------------------------\n";
@@ -127,6 +128,13 @@ int main(){
                     // sEmsObj.displayEmpList();
                 }
                 else if(sVal == 2){
+                    int sNval=0;
+                    cout<<"Enter N value :";
+                    cin>>sNval;
+                    cinBufferClear();
+                    sEmsObj.pAddNEmpRandom(sNval);
+                }
+                else if(sVal == 3){
                     sEmsObj.pAddEmp();
                     sEmsObj.displayEmpList();
                 }
@@ -155,7 +163,7 @@ int main(){
                         }
                     case 1:{
                         sEmsObj.displayEmpList();
-                        sEmsObj.displayResignedEmp();
+                        // sEmsObj.displayResignedEmp();
                         break;
                     }
                     case 2:{
@@ -182,8 +190,24 @@ int main(){
                         break;
                     }
                     case 3:{
+                        int sGender=0;
+                        cout<<"\n1)Male\n"
+                            <<"\nFemale\n"
+                            <<"Your Choice : ";
+                        cin>>sGender;
+                        cinBufferClear();
+                        if(sGender == 1){
+                            sEmsObj.pDisplayMaleEmp();
+
+                        }
+                        else if(sGender == 2){
+                            sEmsObj.pDisplayFemaleEmp();
+                        }
+                        else{
+                            cout<<"\nEnter a Valid Choice\n";
+                        }
                         break;
-                    }
+                        }
                     case 4:{
                         int sKey;
                         cout<<"\n1)Active"
@@ -207,7 +231,11 @@ int main(){
                         break;
                     }
                     case 5:{
-                        sEmsObj.displayEmpList();
+                        std::string sID;
+                        cout<<"\nEnter the Employee ID";
+                        cin>>sID;
+                        cinBufferClear();
+                        sEmsObj.pDisplayEmpSummary(sID);
                         break;
                     }
                     default :{

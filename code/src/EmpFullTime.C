@@ -41,7 +41,6 @@ EmpFullTime::EmpFullTime(int rFlag) : Employee(true){
 
 void EmpFullTime::print(std::ostream& out) const {
 
-        printHeader();// Respective obj print will get called. 
 
     out << std::left
         << "\n|" << std::setw(12) << mID
@@ -57,8 +56,6 @@ void EmpFullTime::print(std::ostream& out) const {
         << "|" << "";
 }
 
-void EmpFullTime::printHeader() const {
-}
 void EmpFullTime::printAll(std::ostream& out) const {
 
         out << std::left

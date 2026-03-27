@@ -23,9 +23,12 @@ private:
 
 public:
     bool pAddEmpRandom();
+    void pAddNEmpRandom(int n);
+
     bool pAddEmp();
     bool pRemove(std::string IDParm);
     EmployeeIF* pSearchWithId(std::string IDParm);
+    
     int pComputeDOL(std::string IDParm);
     bool makeFullTime(std::string IDParm);
     bool premoveLeaves(int leaveCountParm);
@@ -37,6 +40,12 @@ public:
 
     void pDisplayActiveEmp();
     void pDisplayInActiveEmp();
+
+    void pDisplayMaleEmp();
+    void pDisplayFemaleEmp();
+
+    void pDisplayEmpSummary(std::string empID);
+
 
 
     
@@ -58,10 +67,10 @@ public:
     void displayResignedEmp();
     void makeResigned(Employee* objParm);
 
-    void headerFullTime();
-    void headerIntern();
-    void headerContractor();
     void headerAll();
+    void headerFIC(int valParm);
+    void headerResigned();
+
 
 
 

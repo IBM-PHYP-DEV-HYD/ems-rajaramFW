@@ -70,7 +70,6 @@ public:
     virtual std::string getLWD() override;
 
     virtual void print(std::ostream& out) const override;
-    virtual void printHeader() const override;
 
     virtual void printAll(std::ostream& out) const override;
 
