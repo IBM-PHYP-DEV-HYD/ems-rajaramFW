@@ -86,7 +86,16 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
             sObj->setID(mCurEmployeeQueue[i]->getID());
             sObj->setDOB(mCurEmployeeQueue[i]->getDOB());
             sObj->setDOJ(mCurEmployeeQueue[i]->getDOJ());
-            sObj->setDOL(mCurEmployeeQueue[i]->getDOL());
+            
+            if(mCurEmployeeQueue[i]->getID()[7] == 'F'){
+                // Date sDOL = mCurEmployeeQueue[i]->getDOJ();
+                
+                sObj->setDOL(addMonths(mCurEmployeeQueue[i]->getDOJ(),36));
+            }
+            else{
+                sObj->setDOL(mCurEmployeeQueue[i]->getDOL());
+            }
+
             sObj->setGender(mCurEmployeeQueue[i]->getGender());
 
             sObj->setType("Resigned");
