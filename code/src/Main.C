@@ -114,7 +114,12 @@ int main(){
                     sFlag = false;
                     break;
                 }
-                sMenuCounter = sVal;
+                if((sVal>0) && (sVal<4)){
+                    sMenuCounter = sVal;
+                }
+                else{
+                    cout<<"\nEnter a valid choice\n";
+                }
                 break;
             }
             case 1:{

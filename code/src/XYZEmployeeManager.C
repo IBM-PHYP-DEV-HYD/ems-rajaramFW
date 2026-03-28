@@ -76,7 +76,7 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
 
     for(int i = 0; i < mCurEmployeeQueue.get_size(); i++)
     {
-        cout << "\nID in queue " << mCurEmployeeQueue[i]->getID();
+        cout << "\nID in queue " << mCurEmployeeQueue[i]->getID() <<"IDParm is "<<IDParm;
 
         if(mCurEmployeeQueue[i]->getID() == IDParm)
         {
@@ -87,9 +87,13 @@ bool XYZEmployeeManager::pRemove(std::string IDParm)
             sObj->setDOB(mCurEmployeeQueue[i]->getDOB());
             sObj->setDOJ(mCurEmployeeQueue[i]->getDOJ());
             
+<<<<<<< HEAD
             if(mCurEmployeeQueue[i]->getID()[7] == 'F'){
                 // Date sDOL = mCurEmployeeQueue[i]->getDOJ();
                 
+=======
+            if(mCurEmployeeQueue[i]->getID()[7] == 'F'){                
+>>>>>>> fb0468e (Ems1.7)
                 sObj->setDOL(addMonths(mCurEmployeeQueue[i]->getDOJ(),36));
             }
             else{
